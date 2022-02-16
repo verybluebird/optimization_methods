@@ -1,0 +1,19 @@
+﻿  1lab.cpp
+C:\Users\Юлия\source\repos\optimization_methods\labs\1lab\1lab\1lab.cpp(82,9): warning C4101: fcount: неиспользованная локальная переменная
+C:\Users\Юлия\source\repos\optimization_methods\labs\1lab\1lab\1lab.cpp(147,38): warning C4244: аргумент: преобразование "double" в "const unsigned __int64", возможна потеря данных
+C:\Users\Юлия\source\repos\optimization_methods\labs\1lab\1lab\1lab.cpp(147,61): warning C4244: аргумент: преобразование "double" в "const unsigned __int64", возможна потеря данных
+C:\Users\Юлия\source\repos\optimization_methods\labs\1lab\1lab\1lab.cpp(148,33): warning C4244: аргумент: преобразование "double" в "_Ty", возможна потеря данных
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\Юлия\source\repos\optimization_methods\labs\1lab\1lab\1lab.cpp(150,30): warning C4244: =: преобразование "unsigned __int64" в "double", возможна потеря данных
+C:\Users\Юлия\source\repos\optimization_methods\labs\1lab\1lab\1lab.cpp(152,28): warning C4244: аргумент: преобразование "double" в "const unsigned __int64", возможна потеря данных
+C:\Users\Юлия\source\repos\optimization_methods\labs\1lab\1lab\1lab.cpp(152,59): warning C4244: аргумент: преобразование "double" в "const unsigned __int64", возможна потеря данных
+C:\Users\Юлия\source\repos\optimization_methods\labs\1lab\1lab\1lab.cpp(153,30): warning C4244: аргумент: преобразование "double" в "const unsigned __int64", возможна потеря данных
+C:\Users\Юлия\source\repos\optimization_methods\labs\1lab\1lab\1lab.cpp(153,63): warning C4244: аргумент: преобразование "double" в "const unsigned __int64", возможна потеря данных
+C:\Users\Юлия\source\repos\optimization_methods\labs\1lab\1lab\1lab.cpp(164,42): warning C4244: аргумент: преобразование "double" в "const unsigned __int64", возможна потеря данных
+C:\Users\Юлия\source\repos\optimization_methods\labs\1lab\1lab\1lab.cpp(164,75): warning C4244: аргумент: преобразование "double" в "const unsigned __int64", возможна потеря данных
+C:\Users\Юлия\source\repos\optimization_methods\labs\1lab\1lab\1lab.cpp(172,42): warning C4244: аргумент: преобразование "double" в "const unsigned __int64", возможна потеря данных
+C:\Users\Юлия\source\repos\optimization_methods\labs\1lab\1lab\1lab.cpp(172,75): warning C4244: аргумент: преобразование "double" в "const unsigned __int64", возможна потеря данных
+  1lab.vcxproj -> C:\Users\Юлия\source\repos\optimization_methods\labs\1lab\x64\Debug\1lab.exe
