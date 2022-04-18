@@ -12,16 +12,16 @@ double h_restriction(point p)
 {
     double x = p.x;
     double y = p.y;
-    //return x - y;
-    return 2 * x * x + y * y - 5;
+    return x - y;
+    //return 2 * x * x + y * y - 5;
 }
 double f(point p)
 {
     double x = p.x;
     double y = p.y;
 
-    //return 5 * (x + y) * (x + y) + (x - 2) * (x - 2);
-    return x + y;
+    return 5 * (x + y) * (x + y) + (x - 2) * (x - 2);
+    //return x + y;
 }
 double H(double h)
 {
@@ -53,7 +53,7 @@ void Penalty_h() {
         fprintf(out, "|   r     |       (Xi,Yi)        | f(Xi,Yi)| h(Xi,Yi)|\n");  
         fprintf(out, "|%- 7f|(%- 7f, %- 7f)|%- 7f|%- 7f|\n", r, p.x, p.y, f(p), h_restriction(p));
     }
-    while (h_restriction(p) > 0) {
+    while (abs(h_restriction(p)) > 1e-14) {
         r *= k;
         method_variable_metric create_metod_variable(p, 1e-6, Q_b, "test_b_1e-6.txt");
         if (out)
@@ -76,7 +76,7 @@ void Penalty_g() {
         fprintf(out, "|   r     |       (Xi,Yi)        | f(Xi,Yi)| h(Xi,Yi)|\n");
         fprintf(out, "|%- 7f|(%- 7f, %- 7f)|%- 7f|%- 7f|\n", r, p.x, p.y, f(p), h_restriction(p));
     }
-    while (g_restriction(p) > 0) {
+    while (g_restriction(p) > 1e-14) {
         r *= k;
         method_variable_metric create_metod_variable(p, 1e-6, Q_a, "test_a_1e-6.txt");
         if (out)
