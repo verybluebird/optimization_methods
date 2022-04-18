@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="3laba.cpp" />
+    <ClCompile Include="HookJ.cpp" />
     <ClCompile Include="lib.cpp" />
     <ClCompile Include="Method_0.cpp" />
     <ClCompile Include="Method_variable_metric.cpp" />

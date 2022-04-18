@@ -128,6 +128,8 @@ class method_variable_metric
 	{
 		point z = dxk - H * gk;
 		double div = z * gk;
+		/*if (div < 1e-19)
+			return;*/
 		H[0][0] += z.x * z.x / div;
 		H[0][1] += z.x * z.y / div;
 		H[1][0] += z.y * z.x / div;
@@ -135,7 +137,6 @@ class method_variable_metric
 	}
 
 public:
-	double eps_f = 1e-3;
 	int count_f;
 	method_variable_metric(point& x, double eps, OneDimensionFunction function, std::string fname)
 	{
