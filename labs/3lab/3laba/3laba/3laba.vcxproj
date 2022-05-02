@@ -148,6 +148,10 @@
   <ItemGroup>
     <ClInclude Include="lib.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="problem_a.txt" />
+    <Text Include="problem_b.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

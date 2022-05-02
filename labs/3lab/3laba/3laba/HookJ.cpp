@@ -89,7 +89,7 @@ class HookJ
 		double  f2 = function(p2);
 		count_f += 2;
 
-		for (i = 0; abs(b - a) > 1e-8; i++)
+		for (i = 0; abs(b - a) > 1e-7; i++)
 		{
 			if (f1 > f2)
 			{

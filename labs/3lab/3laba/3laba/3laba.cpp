@@ -3,7 +3,7 @@
 #include"HookJ.cpp"
 
 double r; //коэфф штрафа
-double k = 2; //коэфф увеличения штрафа
+double k; //коэфф увеличения штрафа
 
 double g_restriction(point p)
 {
@@ -28,12 +28,12 @@ double f(point p)
 }
 double H(double h)
 {
-    return abs(h);
+    return pow(abs(h),1);
 }
 
 double G(double g)
 {
-    return (g + abs(g)) / 2;
+    return pow((g + abs(g)) / 2, 1);
 }
 
 double Q_b(point p)
@@ -51,6 +51,7 @@ void Penalty_h() {
     fopen_s(&out, "problem_b.txt", "w");
     point p = point(1,1);
     r = 1;
+    k = 2;
     if (out)
     {
         fprintf(out, "|   r     |       (Xi,Yi)        | f(Xi,Yi)| h(Xi,Yi)|\n");
@@ -58,12 +59,12 @@ void Penalty_h() {
     }
     //method_variable_metric create_metod_variable(p, 1e-6, Q_b, "test_b_1e-6.txt");
     //method_0 m = method_0(p, 1e-6, Q_b, "test_b_1e-6.txt");
-    h.HookeJeeves(p, Q_b, 1e-6);
+    h.HookeJeeves(p, Q_b, 1e-3);
     if (out)
     {
         fprintf(out, "|%- 7f|(%- 7f, %- 7f)|%- 7f|%- 7f|\n", r, p.x, p.y, f(p), h_restriction(p));
     }
-    for (int i = 0; i < 60; ++i) {
+    for (int i = 0; i < 20; ++i) {
         r *= k;
         //method_variable_metric create_metod_variable(p, 1e-6, Q_b, "test_b_1e-6.txt");
         //method_0 m = method_0(p, 1e-6, Q_b, "test_b_1e-6.txt");
@@ -73,7 +74,7 @@ void Penalty_h() {
         {
             fprintf(out, "|%- 7f|(%- 7f, %- 7f)|%- 7f|%- 7f|\n", r, p.x, p.y, f(p), h_restriction(p));
         }
-        if ( abs(h_restriction(p)) < 1e-14)
+        if ( k*abs(h_restriction(p)) < 1e-14)
             break;
 
     }
@@ -87,6 +88,7 @@ void Penalty_g() {
     fopen_s(&out, "problem_a.txt", "w");
     point p = point(1,1);
     r = 1;
+    k = 2;
     if (out)
     {
         fprintf(out, "|   r     |       (Xi,Yi)        | f(Xi,Yi)| g(Xi,Yi)|\n");
@@ -94,7 +96,7 @@ void Penalty_g() {
     }
     //method_variable_metric create_metod_variable(p, 1e-6, Q_b, "test_b_1e-6.txt");
     //method_0 m = method_0(p, 1e-6, Q_b, "test_b_1e-6.txt");
-    h.HookeJeeves(p, Q_a, 1e-6);
+    h.HookeJeeves(p, Q_a, 1e-3);
     if (out)
     {
         fprintf(out, "|%- 7f|(%- 7f, %- 7f)|%- 7f|%- 7f|\n", r, p.x, p.y, f(p), g_restriction(p));
@@ -109,7 +111,7 @@ void Penalty_g() {
         {
             fprintf(out, "|%- 7f|(%- 7f, %- 7f)|%- 7f|%- 7f|\n", r, p.x, p.y, f(p), g_restriction(p));
         }
-        if (g_restriction(p) < 1e-14)
+        if (k*g_restriction(p) < 1e-14)
             break;
 
     }
