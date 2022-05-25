@@ -1,0 +1,10 @@
+﻿  HookJ.cpp
+  lib.cpp
+  Method_0.cpp
+  Method_variable_metric.cpp
+  RandomMethods.cpp
+C:\Users\Юлия\source\repos\optimization_methods\labs\4lab\4laba\4laba\RandomMethods.cpp(40,12): warning C4244: 'initializing': conversion from 'double' to 'int64_t', possible loss of data
+C:\Users\Юлия\source\repos\optimization_methods\labs\4lab\4laba\4laba\RandomMethods.cpp(60,59): warning C4838: conversion from 'int64_t' to 'int' requires a narrowing conversion
+C:\Users\Юлия\source\repos\optimization_methods\labs\4lab\4laba\4laba\RandomMethods.cpp(60,59): warning C4244: 'initializing': conversion from 'int64_t' to 'int', possible loss of data
+  Generating Code...
+  4laba.vcxproj -> C:\Users\Юлия\source\repos\optimization_methods\labs\4lab\4laba\x64\Debug\4laba.exe

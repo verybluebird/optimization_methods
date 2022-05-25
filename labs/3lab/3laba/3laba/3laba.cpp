@@ -28,12 +28,12 @@ double f(point p)
 }
 double H(double h)
 {
-    return pow(abs(h),1);
+    return pow(abs(h),2);
 }
 
 double G(double g)
 {
-    return pow((g + abs(g)) / 2, 1);
+    return pow((g + abs(g)) / 2, 2);
 }
 
 double Q_b(point p)
@@ -49,9 +49,9 @@ void Penalty_h() {
     HookJ h;
     FILE* out;
     fopen_s(&out, "problem_b.txt", "w");
-    point p = point(1,1);
-    r = 1;
-    k = 2;
+    point p = point(1, 2);
+    r = 100;
+    k = 100;
     if (out)
     {
         fprintf(out, "|   r     |       (Xi,Yi)        | f(Xi,Yi)| h(Xi,Yi)|\n");
@@ -59,7 +59,7 @@ void Penalty_h() {
     }
     //method_variable_metric create_metod_variable(p, 1e-6, Q_b, "test_b_1e-6.txt");
     //method_0 m = method_0(p, 1e-6, Q_b, "test_b_1e-6.txt");
-    h.HookeJeeves(p, Q_b, 1e-3);
+    h.HookeJeeves(p, Q_b, 1e-6);
     if (out)
     {
         fprintf(out, "|%- 7f|(%- 7f, %- 7f)|%- 7f|%- 7f|\n", r, p.x, p.y, f(p), h_restriction(p));
@@ -74,7 +74,7 @@ void Penalty_h() {
         {
             fprintf(out, "|%- 7f|(%- 7f, %- 7f)|%- 7f|%- 7f|\n", r, p.x, p.y, f(p), h_restriction(p));
         }
-        if ( k*abs(h_restriction(p)) < 1e-14)
+        if ( k*abs(h_restriction(p)) < 1e-14 || r>1e+20)
             break;
 
     }
@@ -86,9 +86,9 @@ void Penalty_g() {
     HookJ h;
     FILE* out;
     fopen_s(&out, "problem_a.txt", "w");
-    point p = point(1,1);
-    r = 1;
-    k = 2;
+    point p = point(1,2);
+    r = 100;
+    k = 100;
     if (out)
     {
         fprintf(out, "|   r     |       (Xi,Yi)        | f(Xi,Yi)| g(Xi,Yi)|\n");
@@ -105,7 +105,7 @@ void Penalty_g() {
         r *= k;
         //method_variable_metric create_metod_variable(p, 1e-6, Q_b, "test_b_1e-6.txt");
         //method_0 m = method_0(p, 1e-6, Q_b, "test_b_1e-6.txt");
-        h.HookeJeeves(p, Q_a, 1e-6);
+        h.HookeJeeves(p, Q_a, 1e-3);
 
         if (out)
         {
