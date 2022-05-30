@@ -129,13 +129,14 @@ class HookJ
 public:
 	int count_f = 0;
 	int iterations = 0;
-	void HookeJeeves(point& x0, OneDimensionFunction function, double eps) {
+	void HookeJeeves(point& x0, OneDimensionFunction function, double eps, int& fcount) {
 		this->function = function;
 		point x = x0;
 		point x1 = x0;
 		point s = x0;// direction to 1D minimization
 
 		double f0 = function(x0), flast = f0;// start f value
+		fcount++;
 		double f1val = 0;// value in next finding point
 
 		// optimization:
@@ -154,10 +155,12 @@ public:
 				double temp = x1.x;
 				x1.x += dx;
 				fp = function(x1);
+				fcount++;
 
 				if (fp > f0) {
 					x1.x = temp - dx;
 					fm = function(x1);
+					fcount++;
 
 					if (fm > f0) x1.x = temp;	// x1[i] not changed
 					else f0 = fm;
@@ -171,10 +174,12 @@ public:
 				temp = x1.y;
 				x1.y += dx;
 				fp = function(x1);
+				fcount++;
 
 				if (fp > f0) {
 					x1.y = temp - dx;
 					fm = function(x1);
+					fcount++;
 
 					if (fm > f0) x1.y = temp;	// x1[i] not changed
 					else f0 = fm;
@@ -197,6 +202,7 @@ public:
 			x1 = x + lambda * s; 
 
 			f1val = function(x1);
+			fcount++;
 
 			iterations++;
 
